@@ -9,6 +9,7 @@ The goal of this project was to implement a given state transition diagram on a 
 ### State Machine Diagram
 
 The behavior of the system is governed by the following state diagram:
+<img width="542" height="256" alt="image" src="https://github.com/user-attachments/assets/dbebd36c-eb20-422a-8a6e-2d56379a7bc6" />
 
 
 ## Functionality & Features
@@ -40,6 +41,8 @@ The behavior of the system is governed by the following state diagram:
 ## Demonstration Video
 
 A short video demonstrating all 7 state transitions can be viewed here:
+
+https://youtu.be/VLAV8kEXP-E
 
 ---
 *This project was developed as an academic exercise. The accompanying report in the `/report` directory provides a detailed breakdown of the design, implementation, and lessons learned.*
