@@ -10,4 +10,11 @@ This repository contains a collection of projects completed as part of an Embedd
 * **Status:** ✅ Complete
 
 ---
+
+#### ➡️ [Project 2: Lying Posture Detection](https://github.com/ChinmayAmrutkar/Embedded-ML-Projects/tree/main/Project2-Posture-Detection)
+* **Description:** A real-time system that detects a user's lying posture (supine, prone, side) using the onboard accelerometer.
+* **Key Concepts:** IMU (BMI270) accelerometer, data-driven algorithm design, sense-process-act model, real-time systems, sampling frequency analysis.
+* **Status:** ✅ Complete
+
+---
 *(More projects will be added here as they are completed.)*
