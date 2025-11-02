@@ -39,7 +39,8 @@ The core of the algorithm comes from a direct observation of the data collected.
 | **Prone** | `~ -1.0` | `~ 0.0` |
 | **Side** | `~ 0.0` | `~ ±1.0` |
 
-This data directly inspired the simple `if...else if` algorithm, which uses a threshold of `0.8` to provide robustness against slight tilts.
+This data directly inspired the simple `if...else if` algorithm, which uses a threshold of `0.8` to provide robustness against slight tilts. <br>
+
 Supine Data Plot:
 <img width="973" height="431" alt="image" src="https://github.com/user-attachments/assets/3daa5986-b5d8-4e48-a212-0282002c5cf0" />
 
