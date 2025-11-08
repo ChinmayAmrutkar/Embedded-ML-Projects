@@ -57,7 +57,7 @@ The notebook will automatically:
 6.  Select the best model (`ReLU`) and evaluate it on the unseen test set, printing the final Classification Report and Confusion Matrix.
 
 ## Final Results
-The `ReLU` model was the clear winner, achieving the highest accuracy (**99.97%**) and converging **3x faster** than the other models (22 epochs).
+The `ReLU` model was the clear winner, achieving the highest validation accuracy (**99.97%**) and converging **3x faster** than the other models (22 epochs).
 
 When evaluated on the final, unseen test set, the model achieved **perfect 100% accuracy**, proving the data-centric design was a complete success.
 
