@@ -17,4 +17,11 @@ This repository contains a collection of projects completed as part of an Embedd
 * **Status:** ✅ Complete
 
 ---
+
+#### ➡️ [Project 3: Robust Posture Classification](https://github.com/ChinmayAmrutkar/Embedded-ML-Projects/tree/main/Project3-NN-Posture-Detection)
+* **Description:** An orientation-robust posture classifier built with a Neural Network. This model expands on Project 2 to classify 5 postures (`supine`, `prone`, `side`, `sitting`, `unknown`) regardless of sensor orientation.
+* **Key Concepts:** Neural Networks (TensorFlow/Keras), 6-Axis IMU (Accel+Gyro), Robust Data Collection, Feature Engineering, Noise Injection, `softmax`, `EarlyStopping`.
+* **Status:** ✅ Complete
+
+---
 *(More projects will be added here as they are completed.)*
