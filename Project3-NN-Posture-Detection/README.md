@@ -20,11 +20,6 @@ This project solves both problems by using a data-centric machine learning appro
 * **ML Best Practices:** `StandardScaler` for feature scaling, `EarlyStopping` for regularization, and a 3-way `train/validation/test` split for robust evaluation.
 * **Activation Function Analysis:** Comparing `ReLU`, `Tanh`, and `Sigmoid` to determine the most effective and efficient function for this problem (Spoiler: It's `ReLU`).
 
-## Recommended File Structure
-
-It's highly recommended to use a `.gitignore` file (see contents below) to keep the raw data files from being committed to the repository.
-
-Project3-NN-Posture-Detection/ | +-- README.md (This file) +-- Posture_Model_Code.ipynb (The main Python/Jupyter notebook) +-- .gitignore (Hides data files, etc.) | +-- src/ (Arduino source code) | +-- data_collection.ino | +-- report/ (The full written report) | +-- Project_3_Report.md | +-- (Your training plots / confusion matrix PNGs) | +-- data/ (All raw .csv files - Will be ignored by Git) +-- supine_usb_up_trial1.csv +-- ... (all 20+ data files) ...
 
 ## Hardware and Software
 * **Hardware:** Arduino Nano 33 BLE Sense Rev2
@@ -50,7 +45,7 @@ This project is in two parts: data collection (on-device) and model training (of
 
 ### 2. Model Training & Evaluation (Jupyter)
 1.  Ensure all your collected `.csv` files are in the `/data/` folder.
-2.  Open `Posture_Model_Code.ipynb` in Jupyter Lab or VS Code.
+2.  Open `src/Posture_Model_Code.ipynb` in Jupyter Lab or VS Code.
 3.  Run all the cells from top to bottom.
 
 The notebook will automatically:
@@ -67,19 +62,18 @@ The `ReLU` model was the clear winner, achieving the highest accuracy (**99.97%*
 When evaluated on the final, unseen test set, the model achieved **perfect 100% accuracy**, proving the data-centric design was a complete success.
 
 ### Test Set Classification Report
+| | precision | recall | f1-score | support |
+| :--- | ---: | ---: | ---: | ---: |
+| supine | 1.00 | 1.00 | 1.00 | 2113 |
+| prone | 1.00 | 1.00 | 1.00 | 2192 |
+| side | 1.00 | 1.00 | 1.00 | 4347 |
+| sitting | 1.00 | 1.00 | 1.00 | 2141 |
+| unknown | 1.00 | 1.00 | 1.00 | 2404 |
+| | | | | |
+| accuracy | | | 1.00 | 13197 |
+| macro avg | 1.00 | 1.00 | 1.00 | 13197 |
+| weighted avg | 1.00 | 1.00 | 1.00 | 13197 |
+
 ---
-precision    recall  f1-score   support
 
-  supine       1.00      1.00      1.00      2113
-   prone       1.00      1.00      1.00      2192
-    side       1.00      1.00      1.00      4347
- sitting       1.00      1.00      1.00      2141
- unknown       1.00      1.00      1.00      2404
-
-accuracy                           1.00     13197
-macro avg      1.00      1.00      1.00     13197 
-weighted avg   1.00      1.00      1.00     13197
-
----
-
-*This project was developed as an academic exercise. The full, detailed analysis of the experimental design, results, and conclusions can be found in the `/report/Project_3_Report.md` file.*
+*This project was developed as an academic exercise. The full, detailed analysis of the experimental design, results, and conclusions can be found in the `/report/Project_3.pdf` file.*
