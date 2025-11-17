@@ -25,7 +25,7 @@ This repository contains a collection of projects completed as part of an Embedd
 
 ---
 
-#### ➡️ [Project 4: Sensor-Agnostic & Orientation-Insensitive Posture Detection](https://github.com/ChinmayAmrutkar/Embedded-ML-Projects/tree/main/Project4-Sensor-Agnostic-Posture-Detection)
+#### ➡️ [Project 4: Sensor-Agnostic & Orientation-Insensitive Posture Detection](https://github.com/ChinmayAmrutkar/Embedded-ML-Projects/tree/main/Project4-Real-Time%20Sensor-Agnostic-Posture-Detection)
 * **Description:** A complete, on-device system that classifies 5 postures with **99.12% accuracy**. This project's main features are its **sensor-agnostic** design (works with Accel, Gyro, or Mag) and **orientation-insensitive** design (works regardless of sensor rotation).
 * **Key Concepts:** 1D-CNN, 9-Axis IMU, Sensor-Agnostic Normalization, On-Device Deployment (TFLite), `const` memory (SRAM vs. Flash), Robust Serial "Handshake" Protocol.
 * **Status:** ✅ Complete
