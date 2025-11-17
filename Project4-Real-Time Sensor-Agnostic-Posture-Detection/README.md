@@ -32,7 +32,7 @@ This project solves both problems by using a data-centric machine learning appro
     * Libraries: `pyserial`
 
 ## Repository Structure
-.
+```
 ├── README.md
 │
 ├── notebook/
@@ -55,7 +55,7 @@ This project solves both problems by using a data-centric machine learning appro
     ├── Project4_Report.pdf     (The final project report)
     ├── training_history.png
     └── confusion_matrix.png
-
+```
 ## How to Implement
 
 This project is in three parts: data collection, model training (offline), and real-time inference (on-device).
