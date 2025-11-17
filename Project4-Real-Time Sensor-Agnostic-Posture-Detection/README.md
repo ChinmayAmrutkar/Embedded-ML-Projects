@@ -10,7 +10,7 @@ Its core features are its **sensor-agnostic** design (it can use any of the 3 se
 
 This project's goal was to build a complete, robust, and deployable machine learning system. This required solving two primary challenges:
 1.  **Sensor-Agnosticism:** The system must not be tied to a single sensor. It should be able to make a prediction using data from the accelerometer, gyroscope, *or* magnetometer.
-2.  **Orientation-Insensitivity:** The system must be robust to how the user wears it. It must correctly identify postures (e.g., "side") even if the sensor is "upside-down" (USB-down) or the user is on their left or right.
+2.  **Orientation-Insensitivity:** The system must be robust to how the user wears it. It must correctly identify postures (e.g., "side") even if the sensor is "upside-down" (USB-down).
 
 This project solves both problems by using a data-centric machine learning approach. A single 1D-CNN is trained on a "robust" dataset that includes normalized data from all three sensors, collected in multiple orientations.
 
@@ -18,7 +18,7 @@ This project solves both problems by using a data-centric machine learning appro
 * **1D Convolutional Neural Network:** Building, training, and evaluating a 1D-CNN, which is ideal for time-series sensor data.
 * **9-Axis IMU Data:** Using all three 3-axis sensors (Accelerometer, Gyroscope, Magnetometer) as potential feature inputs.
 * **Sensor-Agnostic Design:** Training a single model on a *combined* dataset of independently normalized data from all 3 sensors.
-* **Orientation-Insensitive Design:** Explicitly collecting training data in multiple orientations (USB Up/Down/Left/Right, and `left_side`/`right_side`) to build a robust model.
+* **Orientation-Insensitive Design:** Explicitly collecting training data in multiple orientations (USB Up/Down, and `left_side`/`right_side`) to build a robust model.
 * **On-Device Deployment:** Converting the final Keras model to a C-array (`model.h`) using TensorFlow Lite and deploying it to the Arduino's Flash memory.
 * **Robust Serial Protocol:** Implementing a "handshake" protocol (`SENSOR:TOKEN` / `CMD:TOKEN` / `READY`) between the Python host and Arduino to ensure stable, desync-proof communication.
 
@@ -56,15 +56,15 @@ This project solves both problems by using a data-centric machine learning appro
     ├── training_history.png
     └── confusion_matrix.png
 
-## How to Run the Solution
+## How to Implement
 
 This project is in three parts: data collection, model training (offline), and real-time inference (on-device).
 
 ### 1. Data Collection (Arduino + Python)
-1.  Open `arduino_sketches/1_data_collector/data_collector.ino` in the Arduino IDE and upload it.
-2.  On the host computer, run `python data_collector.py` (not included in this repo, but used for the project).
-3.  Follow the prompts to enter a descriptive filename (e.g., `supine_usb_up_trial1.csv`).
-4.  Perform the posture for 30-45 seconds. Press `Ctrl+C` to stop.
+1.  Open `arduino_sketches/data_collector/data_collector.ino` in the Arduino IDE and upload it.
+2.  On the host computer copy paste the data from Arduino's Serial Monitor to .csv
+3.  Save it in a descriptive filename (e.g., `supine_usb_up_trial1.csv`).
+4.  Perform the posture for 45-60 seconds. 
 5.  Repeat this process for all 5 classes in all their orientations, placing the `.csv` files in the `data/` folder.
 
 ### 2. Model Training & Conversion (Google Colab)
@@ -81,7 +81,7 @@ The notebook will automatically:
 6.  Convert the final model to `model.h` and package all project files into `Arduino_Project_Files.zip` for download.
 
 ### 3. Real-Time Inference (Arduino + Python)
-1.  Open `arduino_sketches/2_real_time_inference/real_time_inference.ino` in the Arduino IDE.
+1.  Open `arduino_sketches/real_time_inference/real_time_inference.ino` in the Arduino IDE.
 2.  Add the `model.h` file (from your `.zip`) to the same sketch folder.
 3.  **Crucially:** Manually edit `model.h` and add `const` to the `model_tflite[]` array and `model_tflite_len` variables. This fixes the SRAM overflow (linker) error by storing the model in Flash.
 4.  Open `normalization_params.json` and copy the 18 `mean`/`std` values into the corresponding constant arrays at the top of the `.ino` sketch.
@@ -107,6 +107,10 @@ The robust data collection and normalization strategy was highly effective, with
 | **accuracy** | | | **0.99** | **114** |
 | **macro avg** | 0.99 | 0.99 | 0.99 | 114 |
 | **weighted avg** | 0.99 | 0.99 | 0.99 | 114 |
+
+## Demonstration Video
+A short video showing the final system working correctly can be viewed here: <br>
+[Demo Video](https://youtu.be/sGtFIbxpJlU)
 
 ---
 
